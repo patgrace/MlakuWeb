@@ -57,6 +57,11 @@ Route::get("/jelajahi/kuliner", [PostController::class, "kuliner"]);
 
 Route::get("/jelajahi/{post}", [PostController::class, "show"]);
 
+Route::get("/about", function () {
+    return view("About");
+});
+
+
 
 
 
