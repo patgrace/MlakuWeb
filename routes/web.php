@@ -61,6 +61,11 @@ Route::get("/about", function () {
     return view("About");
 });
 
+Route::get("/about", function () {
+    return view("About");
+});
+
+
 
 
 
