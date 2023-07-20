@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function login()
     {
         $user = user::all();
-        return view("index/login", compact(["user"]));
+        return view("auth/login", compact(["user"]));
     }
 
     public function authenticate(Request $request)
@@ -27,7 +27,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // dd(auth()->check());
             // $request-> session() -> regenerate();
-            return redirect("/index");
+            return redirect("/home");
         }
 
         return back()->with("LoginErorr", "Login failed");

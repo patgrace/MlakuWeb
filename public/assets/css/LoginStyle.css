@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:wght@100;200;300;400;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Arimo', sans-serif;
+    text-decoration: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image:  linear-gradient(to bottom right, #00BFFF, #000000);
+    
+}
+
+.container{
+    position: relative;
+    background: #222;
+    border: 1px solid #1572be;
+    width: 380px;
+    height: 420px;
+    border-radius: 20px;
+}
+
+.container form{
+    position:absolute;
+    z-index:2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 40px;
+}
+
+
+.container form h2{
+    color:aliceblue;
+    text-align: center;
+    letter-spacing: 10px;
+    
+
+}
+
+.container form .inputbox{
+    position: relative;
+    width: 300px;
+    margin-top: 40px;
+}
+
+
+.container form .inputbox input{
+    position: relative;
+    width: 100%;
+    padding: 20px 10px 10px;
+    border-radius: 10px;
+    border: 2px solid #1572be;
+    box-shadow: none;
+    letter-spacing: 0.05em ;
+    z-index: 10;
+    background: transparent;
+    transition: 0.5;
+    font-size: 15px;
+    color: #fff;
+}
+
+.container form .inputbox span{
+    position: absolute;
+    color: rgb(239, 239, 237);
+    font-size: 1em;
+    letter-spacing: 1px;
+    left: 0;
+    padding: 20px 10px 10px;
+    transition: 0.5s;
+    pointer-events: none;
+
+}
+
+.container form .inputbox input:valid + span,
+.container form .inputbox input:focus + span {
+    color: #fff;
+    font-size: 15px;
+    transform: translateY(-40px);
+}
+
+.container form .inputbox i{
+    position:absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #efeded;
+}
+
+.container button{
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color:#f7eeee;
+    font-size: 18px;
+    color: #2461e6;
+    border-radius: 5px;
+    margin: 35px auto 10px;
+}
+
+.container button:hover{
+    border: 3px solid #00BFFF;
+    transform: 0.7em;
+}
+    
+
+.container form .links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    margin: 10px ;
+}
+
+.container form .links h4{
+    color: #f7eeee;
+}
+
+.container form .links a {
+    color: rgb(80, 142, 218);
+}
+
+.container form .links a:hover {
+   color: #00BFFF;
+}
+

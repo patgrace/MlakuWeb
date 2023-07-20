@@ -11,7 +11,7 @@ class RegisterController extends Controller
     public function index()
     {
         $user = user::all();
-        return view("index/register", compact(["user"]));
+        return view("auth/register", compact(["user"]));
     }
     // public function login()
     // {
@@ -33,7 +33,7 @@ class RegisterController extends Controller
             ->session()
             ->flash("success", "register successfull, please login");
 
-        return redirect("index/login");
+        return redirect("auth/login");
 
         // dd('berhasil');
     }

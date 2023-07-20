@@ -11,43 +11,76 @@ use App\Http\Controllers\jelajahiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostinganController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get("/about", function () {
-    return view("About");
-});
 
-Route::get("/index", [HomeController::class, "home"]);
+
+
 Route::get("/", function () {
-    return redirect("/index");
-});
+    return view("/layout/home", [
+        'title' => 'Home'
+    ]);
+})->name('home');
 
+Route::get("/destination", function () {
+    return view("/layout/destination", [
+        'title' => 'Destination'
+    ]);
+})->name('category');
+
+// Route::get("/home", function () {
+//     return view("/layout/home");
+// });
+
+// Route::get("/index", [HomeController::class, "home"]);
 // Route::resource('/store', [DashboardController::class, 'index']);
 
-Route::get("/index/login", [LoginController::class, "login"])
+
+
+// FORM AUTH //
+Route::get("/login", [LoginController::class, "login"])
     ->name("login")
     ->middleware("guest");
+
 Route::post("/login/store", [LoginController::class, "authenticate"]);
 Route::post("/logout", [LoginController::class, "logout"]);
 
-Route::get("index/register", [RegisterController::class, "index"])->middleware(
-    "guest"
-);
+Route::get("/register", [RegisterController::class, "index"])
+    ->middleware("guest");
+
+
 Route::get("index/testing", [RegisterController::class, "index"]);
 Route::post("/register/store", [RegisterController::class, "store"]);
+
+
+
+
 
 Route::get("/dashboard", function () {
     return view("dashboard.index");
 });
+
+
+
+// ======= DESTINASI ======= //
+
+Route::get("/alam", function () {
+    return view("/category/alam", [
+        'title' => 'Kateogori Alam'
+    ]);
+})->name('Alam');
+
+Route::get("/budaya", function () {
+    return view("/category/budaya", [
+        'title' => 'Kateogori Alam'
+    ]);
+})->name('Alam');
+
+Route::get("/kuliner", function () {
+    return view("/category/kuliner", [
+        'title' => 'Kateogori Alam'
+    ]);
+})->name('Alam');
+
 
 Route::get("jelajahi", [JelajahiController::class, "index"])->middleware("auth") ->name('jelajahi');
 

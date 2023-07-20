@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/mlaku.css" />
-    <title>Home</title>
+    <title>{{ $title }}</title>
+    @yield('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
 </head>
-
 <body>
+    <div class="body-content">
 
-    @include ('partials.navbar');
+    @yield('container')
 
+    </div>
+
+    <script src="{!! asset('assets/js/script.js') !!}"></script>
 </body>
 </html>
