@@ -156,4 +156,29 @@ body{
 }
 
 
+.isi-content .box-category{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        text-align: center;
+}
+
+.box-category .box {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    height: 100px;
+    width: 150px;
+    align-items: center;
+    /* display: flex; */
+    text-align:  center;
+}
+
+.box-category .box h2{
+    margin-top: 30px;
+}
 

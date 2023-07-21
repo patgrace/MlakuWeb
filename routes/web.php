@@ -12,9 +12,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostinganController;
 
 
-
-
-
 Route::get("/", function () {
     return view("/layout/home", [
         'title' => 'Home'
@@ -26,14 +23,6 @@ Route::get("/destination", function () {
         'title' => 'Destination'
     ]);
 })->name('category');
-
-// Route::get("/home", function () {
-//     return view("/layout/home");
-// });
-
-// Route::get("/index", [HomeController::class, "home"]);
-// Route::resource('/store', [DashboardController::class, 'index']);
-
 
 
 // FORM AUTH //
@@ -52,11 +41,19 @@ Route::get("index/testing", [RegisterController::class, "index"]);
 Route::post("/register/store", [RegisterController::class, "store"]);
 
 
+// ==== USER ===== //
 
+Route::get("/dashboard/user", function () {
+    return view("user.dashboard");
+});
 
+// ==== ADMIN ====//
+Route::get("/dashboard/admin/post", function () {
+    return view("admin/post");
+});
 
-Route::get("/dashboard", function () {
-    return view("dashboard.index");
+Route::get("/dashboard/admin/review", function () {
+    return view("admin/review");
 });
 
 
