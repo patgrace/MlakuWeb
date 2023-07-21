@@ -27,14 +27,14 @@ Route::get("/destination", function () {
 
 // FORM AUTH //
 Route::get("/login", [LoginController::class, "login"])
-    ->name("login")
-    ->middleware("guest");
+    ->name("login");
+    // ->middleware("guest");
 
 Route::post("/login/store", [LoginController::class, "authenticate"]);
 Route::post("/logout", [LoginController::class, "logout"]);
 
-Route::get("/register", [RegisterController::class, "index"])
-    ->middleware("guest");
+Route::get("/register", [RegisterController::class, "index"]);
+    // ->middleware("guest");
 
 
 Route::get("index/testing", [RegisterController::class, "index"]);

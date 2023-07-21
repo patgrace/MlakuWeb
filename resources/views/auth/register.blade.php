@@ -8,22 +8,23 @@
 </head>
 <body>
     <div class="container">
-        <form>
+        <form action="/register/store" method="POST">
+            @csrf
             <h2> REGISTER </h2>
             <div class="inputbox">
-                <input type="text" tabindex="1" required="required">
+                <input type="text" tabindex="1" required="required" name="username">
                 <span> Username</span>
                 <i></i>
             </div>
 
             <div class="inputbox">
-                <input type="text" tabindex="1" required="required">
+                <input type="text" tabindex="1" required="required" name="email">
                 <span> Email</span>
                 <i></i>
             </div>
 
             <div class="inputbox">
-                <input  type ="password" required="required">
+                <input  type ="password" required="required" name="password">
                 <span> Password</span>
                 <i></i>
             </div>
@@ -32,7 +33,7 @@
 
             <div class="links">
                 <h4> Already have an account? </h4>
-                <a href="login.html"> LOGIN </a>
+                <a href="/login"> LOGIN </a>
             </div>
 
         </form>

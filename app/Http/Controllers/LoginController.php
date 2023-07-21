@@ -16,18 +16,14 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        // FacedesSession:: flash('email', $credentials -> email);
         $credentials = $request->validate([
             "email" => "required|email:dns",
             "password" => "required",
         ]);
 
-        // dd($credentials, Auth::attempt($credentials));
-
         if (Auth::attempt($credentials)) {
             // dd(auth()->check());
-            // $request-> session() -> regenerate();
-            return redirect("/home");
+            return redirect("/");
         }
 
         return back()->with("LoginErorr", "Login failed");
@@ -36,6 +32,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect("/index");
+        return redirect("/");
     }
 }
