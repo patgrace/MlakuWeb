@@ -14,7 +14,7 @@ body{
     align-items: center;
     min-height: 100vh;
     background-image:  linear-gradient(to bottom right, #00BFFF, #000000);
-    
+
 }
 
 .container{
@@ -40,7 +40,7 @@ body{
     color:aliceblue;
     text-align: center;
     letter-spacing: 8px;
-    
+
 
 }
 
@@ -93,6 +93,10 @@ body{
     color: #efeded;
 }
 
+.alert alert-danger{
+    background-color: red;
+}
+
 .container button{
     width: 150px;
     height: 40px;
@@ -108,7 +112,7 @@ body{
     border: 3px solid #00BFFF;
     transform: 0.7em;
 }
-    
+
 
 .container form .links {
     display: flex;
@@ -128,4 +132,21 @@ body{
 .container form .links a:hover {
    color: #00BFFF;
 }
+
+
+.alert {
+    padding: 5px;
+    margin-bottom: -20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .alert-success {
+    color: #155724;
+    
+  }
+
+  .alert-danger {
+    color: #ee0a0a;
+  }
 

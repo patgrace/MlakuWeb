@@ -32,7 +32,7 @@ body{
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 50px 40px;
+    padding: 40px 40px;
 }
 
 
@@ -40,8 +40,6 @@ body{
     color:aliceblue;
     text-align: center;
     letter-spacing: 10px;
-
-
 }
 
 .container form .inputbox{
@@ -93,6 +91,21 @@ body{
     color: #efeded;
 }
 
+.alert {
+    padding: 5px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .alert-success {
+    color: #acffbf;
+    align-items: center;
+    text-align: center;
+    margin: 30px auto 0px;
+  }
+
+
 .container button{
     width: 150px;
     height: 40px;
@@ -110,22 +123,22 @@ body{
 }
 
 
-.container form .links {
+.container form .links-submit {
     display: flex;
     justify-content: space-around;
     font-size: 15px;
     margin: 10px ;
 }
 
-.container form .links h4{
+.container form .links-submit h4{
     color: #f7eeee;
 }
 
-.container form .links a {
+.container form .links-submit a {
     color: rgb(80, 142, 218);
 }
 
-.container form .links a:hover {
+.container form .links-submit a:hover {
    color: #00BFFF;
 }
 

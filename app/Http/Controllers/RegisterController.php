@@ -18,18 +18,18 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            "username" => "required|max:255",
-            "email" => "required|email|unique:users",
+            "username" => "required|max:255|unique:users",
+            "email" => "required|email:dns|unique:users",
             "password" => "required|min:5|max:255",
         ]);
 
         $validateData["password"] = Hash::make($validateData["password"]);
 
         user::create($validateData);
-        $request
-            ->session();
 
-        return redirect("/login");
+
+
+        return redirect("/login")-> with('success', 'Registration successful, Please Login!');
 
         // dd('berhasil');
     }
