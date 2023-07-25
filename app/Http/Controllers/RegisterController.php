@@ -11,7 +11,7 @@ class RegisterController extends Controller
     public function index()
     {
         $user = user::all();
-        return view("auth/register", compact(["user"]));
+        return view("auth/register");
     }
 
 
@@ -25,10 +25,7 @@ class RegisterController extends Controller
 
         $validateData["password"] = Hash::make($validateData["password"]);
 
-        user::create($validateData);
-
-
-
+        User::create($validateData);
         return redirect("/login")-> with('success', 'Registration successful, Please Login!');
 
         // dd('berhasil');

@@ -12,15 +12,15 @@
                 <i class="material-icons">home</i>
                 <span>HOME</span>
             </a>
-            <a href="/dashboard/admin/post">
+            <a href="/dashboard">
                 <i class="material-icons">post_add</i>
                 <span>ALL POST</span>
             </a>
-            <a href="/dashboard/admin/review">
+            <a href="admin/review">
                 <i class="material-icons">edit_square</i>
                 <span>ALL REVIEW</span>
             </a>
-            <a href="#">
+            <a href="/logout">
                 <i class="material-icons">logout</i>
                 <span>LOGOUT</span>
             </a>

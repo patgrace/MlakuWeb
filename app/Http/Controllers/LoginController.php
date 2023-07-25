@@ -1,17 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+
 
 class LoginController extends Controller
 {
+
     public function login()
     {
-        $user = user::all();
-        return view("auth/login", compact(["user"]));
+        return view("auth/login");
     }
 
     public function authenticate(Request $request)
@@ -22,10 +24,14 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            // dd(auth()->check());
-            return redirect("/");
+            // dd("fakkk");
+            if (auth()->user()->role == 'admin') {
+                return redirect('/admin/home');
+            } else if (auth()->user()->role == 'user') {
+                return redirect('/user/home');
+            }
         }
-
+        return redirect('/login');
         return back()->with("LoginErorr", "Login failed");
     }
 

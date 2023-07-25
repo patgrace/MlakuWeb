@@ -10,7 +10,7 @@
     <h2> PATRICIA GRACE</h2>
     <i> </i>
     <div class="content-user">
-        <a href="home.html">
+        <a href="/home">
             <i class="material-icons">home</i>
             <span>HOME</span>
         </a>
@@ -18,7 +18,7 @@
             <i class="material-icons">edit_square</i>
             <span>ALL REVIEW</span>
         </a>
-        <a href="#">
+        <a href="/logout">
             <i class="material-icons">logout</i>
             <span>LOGOUT</span>
         </a>

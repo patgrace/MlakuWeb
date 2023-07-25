@@ -5,7 +5,7 @@
    <nav class="navbar">
         <a href="/">Home</a>
         <a href="/destination">Destination</a>
-        <a  class= "nav-link {{ ($title === "About Us") ? 'active' : '' }}" href="#footer">About Us</a>
+        <a href="#footer">About Us</a>
         <a href="/login">Log in</a>
    </nav>
    <div class="toggle_btn">

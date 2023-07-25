@@ -1,22 +1,26 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Middleware\user;
+use App\Http\Middleware\admin;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
 
+use App\Http\Controllers\PostController;
+
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\jelajahiController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PostinganController;
 
 
-Route::get("/", function () {
-    return view("/layout/home", [
-        'title' => 'Home'
-    ]);
-})->name('home');
+// Route::get("/", function () {
+//     return view("/layout/home", [
+//         'title' => 'Home'
+//     ]);
+// })->name('home');
 
 Route::get("/destination", function () {
     return view("/layout/destination", [
@@ -26,35 +30,74 @@ Route::get("/destination", function () {
 
 
 // FORM AUTH //
-Route::get("/login", [LoginController::class, "login"])
-    ->name("login");
-    // ->middleware("guest");
+// Route::get("/login", [LoginController::class, "login"])
+//     ->name("login")
+//     ->middleware("guest");
 
-Route::post("/login/store", [LoginController::class, "authenticate"]);
-Route::post("/logout", [LoginController::class, "logout"]);
+// Route::post("/login/store", [LoginController::class, "authenticate"]);
 
-Route::get("/register", [RegisterController::class, "index"]);
-    // ->middleware("guest");
+
+// Route::get("/register", [RegisterController::class, "index"]);
 
 
 Route::get("index/testing", [RegisterController::class, "index"]);
-Route::post("/register/store", [RegisterController::class, "store"]);
 
+
+
+// ==== GUEST ===== //
+
+Route::middleware(['guest'])->group(function() {
+    Route::get('/', function() {
+        return view('/layout/home', [
+            'title' => 'Home',
+        ]);
+    });
+    // Route::get("/", [HomeController::class, "home"]);
+    Route::get('/login', [LoginController::class, 'login']);
+    Route::post("/login/store", [LoginController::class, "authenticate"]);
+    Route::get("/register", [RegisterController::class, "index"]);
+    Route::post("/register/store", [RegisterController::class, "store"]);
+});
 
 // ==== USER ===== //
 
-Route::get("/dashboard/user", function () {
-    return view("user.dashboard");
-});
+// Route::get("/home", [HomeController::class, 'home']);
+
+
+Route::middleware(['user'])->group(function() {
+    // Route::get("/home", [HomeController::class, 'home']);
+
+    Route::get('/home', function() {
+        return view('user.home', [
+            'title' => 'Home',
+        ]);
+    });
+
+    Route::get("/dashboard",[DashboardController::class, 'index']);
+    });
 
 // ==== ADMIN ====//
-Route::get("/dashboard/admin/post", function () {
-    return view("admin/post");
-});
 
-Route::get("/dashboard/admin/review", function () {
-    return view("admin/review");
-});
+Route::middleware(['admin'])->group(function() {
+    Route::get('/home', function() {
+        return view('admin.home', [
+            'title' => 'Home',
+        ]);
+    });
+    Route::get("/dashboard",[DashboardController::class, 'index']);
+    });
+
+
+
+
+
+// Route::get("/dashboard/admin/post", function () {
+//     return view("admin/post");
+// });
+
+// Route::get("/dashboard/admin/review", function () {
+//     return view("admin/review");
+// });
 
 
 
@@ -98,24 +141,6 @@ Route::get("/about", function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get("postingan", [PostinganController::class, "index"])->name('postingan');
 Route::get("postingan/create", [PostinganController::class, "create"])->name('create');
 Route::post("postingan", [PostinganController::class, "store"]);
@@ -128,9 +153,5 @@ Route::post("postingan/{title}/delete", [PostinganController::class, "delete"]);
 // Route::get('/sesi', [SessionsController::class, 'insert']);
 // Route::post('/sesi'/'insert', [SessionsController::class, 'login']);
 
-// Route::get('/cate', function () {
-//     return view('Cate', [
-//         "title" => "posts",
-//         "posts" => $kategori
-//     ]);
-// });
+
+Route::get("/logout", [LoginController::class, "logout"]);
