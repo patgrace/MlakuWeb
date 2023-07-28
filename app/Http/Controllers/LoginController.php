@@ -24,16 +24,17 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            // dd("fakkk");
+            // dd('berhasil2');
             if (auth()->user()->role == 'admin') {
                 return redirect('/admin/home');
             } else if (auth()->user()->role == 'user') {
                 return redirect('/user/home');
             }
         }
-        return redirect('/login');
-        return back()->with("LoginErorr", "Login failed");
+
+        return redirect('/login')->with("LoginError", "Login failed");
     }
+
 
     public function logout()
     {

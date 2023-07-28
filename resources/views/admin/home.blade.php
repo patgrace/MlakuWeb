@@ -14,7 +14,7 @@
                 <a href="/">Home</a>
                 <a href="/destination">Destination</a>
                 <a href="#footer">About Us</a>
-                <a href="/dashboard">ADMIN</a>
+                <a href="/admin/dashboard">ADMIN</a>
         </nav>
         <div class="toggle_btn">
             <i class="fas fa-bars"></i>

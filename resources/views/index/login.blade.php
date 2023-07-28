@@ -1,4 +1,4 @@
- <html>
+ {{-- <html>
     <head>
 	<title>Login 5</title>
 	<meta charset="utf-8">
@@ -91,4 +91,4 @@
             </div>
           </section>
 
-</body></html>
+</body></html> --}}

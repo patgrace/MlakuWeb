@@ -14,7 +14,7 @@
                 <a href="/">Home</a>
                 <a href="/destination">Destination</a>
                 <a href="#footer">About Us</a>
-                <a href="/dashboard">WELKAM, {{ auth()-> user()-> username }}</a>
+                <a href="/user/dashboard">WELKAM, {{ auth()-> user()-> username }}</a>
         </nav>
         <div class="toggle_btn">
             <i class="fas fa-bars"></i>
